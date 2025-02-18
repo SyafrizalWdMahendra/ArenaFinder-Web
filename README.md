@@ -24,10 +24,18 @@ Website ini merupakan website yang diperuntukkan bagi penggemar olahraga yang ti
 
 - Download file ZIP dari github https://github.com/mahen-alim/ArenaFinder-Web.
 - Ekstrak file ZIP yang telah didownload.
-- Copy file tersebut kedalam file C:\xampp\htdocs.
+- Copy file tersebut kedalam file D:\xampp\htdocs atau lokasi penyimpanan folder xampp di laptop masing-masing (menyesuaikan).
 - Buka VS Code, lalu pilih opsi file di pojok kiri atas navigasi.
-- Pilih opsi open folder dan buka file yang sudah tersimpan di C:\xampp\htdocs.
-- Buka salah satu file dan selamat file kode program web ArenaFinder telah tersimpan di PC kalian.
+- Pilih opsi open folder dan buka file yang sudah tersimpan di D:\xampp\htdocs\ArenaFinder-Web.
+- Selamat proyek website ArenaFinder kamu sudah terinstal dengan baik dan benar.
+
+---
+
+## Penggunaan
+
+- Buka aplikasi xampp dan jalankan Apache dan MySQL dengan klik button start.
+- Buka browser yang biasa dipakai, lalu ketikkan http://localhost/ArenaFinder-Web/beranda.php di url input browser.
+- Selamat proyek website ArenaFinder kamu berhasil muncul di website melalui akses dari localhost.
 
 ---
 
