@@ -23,7 +23,6 @@ if ($q2->num_rows > 0) {
     // Ambil hasil query`
     $row = $q2->fetch_assoc();
     $totalMember = $row["total_member"];
-
 } else {
     echo "Tidak ada data keanggotaan.";
 }
@@ -36,7 +35,6 @@ if ($q2->num_rows > 0) {
     // Ambil hasil query`
     $row = $q2->fetch_assoc();
     $totalPesan = $row["jadwal_dipesan"];
-
 } else {
     echo "Data jadwal dipesan tidak ditemukan.";
 }
@@ -49,7 +47,6 @@ if ($q2->num_rows > 0) {
     // Ambil hasil query`
     $row = $q2->fetch_assoc();
     $totalBelumDipesan = $row["jadwal_kosong"];
-
 } else {
     echo "Data jadwal belum dipesan tidak ditemukan.";
 }
@@ -71,13 +68,22 @@ $conn->close();
     <title>ArenaFinder - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/924b40cfb7.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="../img_asset/login.png">
+    <link rel="icon" href="/ArenaFinder-Web/img_asset/login.png">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
     <style>
         /* custom.css */
         body {
@@ -132,7 +138,7 @@ $conn->close();
 
             <!-- Nav Item - Web -->
             <li class="nav-item">
-                <a class="nav-link" href="../index.php">
+                <a class="nav-link" href="/ArenaFinder-Web/beranda.php">
                     <i class="fa-brands fa-edge"></i>
                     <span>Lihat Website</span></a>
             </li>
@@ -190,10 +196,10 @@ $conn->close();
 
             <!-- Your Badge Script with AJAX -->
             <script>
-                setInterval(function () {
+                setInterval(function() {
                     function loadDoc() {
                         var xhttp = new XMLHttpRequest();
-                        xhttp.onreadystatechange = function () {
+                        xhttp.onreadystatechange = function() {
                             if (this.readyState == 4 && this.status == 200) {
                                 document.getElementById("pesanan-link").innerHTML = this.responseText;
                             }
@@ -241,17 +247,13 @@ $conn->close();
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Halo,
-                                    <?php echo $userName; ?>
-                                </span>
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Halo, <?php echo $userName; ?></span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
 
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="profil.php">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
@@ -264,6 +266,7 @@ $conn->close();
                                 </a>
                             </div>
                         </li>
+
 
                     </ul>
 

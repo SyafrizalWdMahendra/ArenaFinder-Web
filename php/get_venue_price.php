@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
-$user = "tifz1761_root";
-$pass = "tifnganjuk321";
-$db = "tifz1761_arenafinder";
+$user = "root";
+$pass = "";
+$db = "arenafinder";
 $conn = mysqli_connect($host, $user, $pass, $db);
 
 if (!$conn) {

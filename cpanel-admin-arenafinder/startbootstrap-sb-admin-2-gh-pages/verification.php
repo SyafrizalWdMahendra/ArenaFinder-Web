@@ -72,7 +72,7 @@ EOL;
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet" />
-    <link rel="icon" href="../img_asset/login.png">
+    <link rel="icon" href="/ArenaFinder-Web/img_asset/login.png">
     <title>Verifikasi Akun</title>
     <style>
         body {
@@ -112,7 +112,7 @@ EOL;
                                         <div class="verification-message">
                                             <?php echo isset($verificationMessage) ? $verificationMessage : ''; ?>
                                         </div>
-                                        <img src="/img_asset/login.png" alt=""
+                                        <img src="/ArenaFinder-Web/img_asset/login.png" alt=""
                                             style="width: 200px; height: auto; margin-bottom: 20px" />
                                     </div>
 

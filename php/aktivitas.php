@@ -1,9 +1,9 @@
 <?php
 session_start();
 $host = "localhost";
-$user = "tifz1761_root";
-$pass = "tifnganjuk321";
-$db = "tifz1761_arenafinder";
+$user = "root";
+$pass = "";
+$db = "arenafinder";
 
 $koneksi = mysqli_connect($host, $user, $pass, $db);
 if (!$koneksi) {
@@ -18,7 +18,7 @@ if (!$koneksi) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aktivitas</title>
-  <link rel="stylesheet" href="css/aktivitas.css" />
+  <link rel="stylesheet" href="/ArenaFinder-Web/css/aktivitas.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -320,7 +320,7 @@ if (!$koneksi) {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto my-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.php">Beranda</a>
+            <a class="nav-link" href="../beranda.php">Beranda</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="">Aktivitas</a>
@@ -390,17 +390,17 @@ if (!$koneksi) {
           // Loop through each sport and generate a button
           foreach ($sports as $sport) {
             $sportName = $sport['sport'];
-            ?>
+          ?>
 
             <button class="all" type="submit" name="sport" value="<?php echo $sportName; ?>"
               data-sport-name="<?php echo $sportName; ?>">
               <!-- You may want to use a more specific image for each sport -->
-              <img src="/img_asset/<?php echo strtolower($sportName); ?>.jpg" alt="" />
+              <img src="/ArenaFinder-Web/img_asset/<?php echo strtolower($sportName); ?>.jpg" alt="" />
               <span>
                 <?php echo $sportName; ?>
               </span>
             </button>
-            <?php
+          <?php
           }
           ?>
         </div>
@@ -444,7 +444,6 @@ if (!$koneksi) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Get the selected sport value
       $selectedSport = isset($_POST['sport']) ? $_POST['sport'] : 'Semua';
-
     }
 
     // Display the selected sport in the label
@@ -481,7 +480,7 @@ if (!$koneksi) {
     // Execute the modified query
     $q3 = mysqli_query($koneksi, $sql3);
     $count = 0; // Untuk menghitung jumlah kartu pada setiap baris
-    
+
     while ($row = mysqli_fetch_array($q3)) {
       // Membuka baris baru setiap kali 4 kartu telah ditampilkan
       if ($count % 4 == 0) {
@@ -510,38 +509,37 @@ if (!$koneksi) {
     ?>
 
     <script>
-      const container = document.querySelector('.con-type');
-      let isDragging = false;
-      let startX, currentX, scrollLeft;
+      function mouseAction() {
+        const container = document.querySelector('.con-type');
+        let isDragging = false;
+        let startX, currentX, scrollLeft;
 
-      container.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startX = e.pageX - container.offsetLeft;
-        scrollLeft = container.scrollLeft;
-        container.style.scrollBehavior = 'auto';
-      });
+        container.addEventListener('mousedown', (e) => {
+          isDragging = true;
+          startX = e.pageX - container.offsetLeft;
+          scrollLeft = container.scrollLeft;
+          container.style.scrollBehavior = 'auto';
+        });
 
-      container.addEventListener('mouseup', () => {
-        isDragging = false;
-        container.style.scrollBehavior = 'smooth';
-      });
+        container.addEventListener('mouseup', () => {
+          isDragging = false;
+          container.style.scrollBehavior = 'smooth';
+        });
 
-      container.addEventListener('mouseleave', () => {
-        isDragging = false;
-        container.style.scrollBehavior = 'smooth';
-      });
+        container.addEventListener('mouseleave', () => {
+          isDragging = false;
+          container.style.scrollBehavior = 'smooth';
+        });
 
-      container.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        currentX = e.pageX - container.offsetLeft;
-        const scrollX = currentX - startX;
-        container.scrollLeft = scrollLeft - scrollX;
-      });
-
+        container.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+          e.preventDefault();
+          currentX = e.pageX - container.offsetLeft;
+          const scrollX = currentX - startX;
+          container.scrollLeft = scrollLeft - scrollX;
+        });
+      }
     </script>
-
-
   </div>
 
 

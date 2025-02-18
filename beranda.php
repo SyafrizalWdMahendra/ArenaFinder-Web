@@ -16,7 +16,7 @@ $conn = new mysqli($servername, $username_db, $password_db, $dbname);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Beranda</title>
-  <link rel="stylesheet" href="/ArenaFinder/css/beranda.css">
+  <link rel="stylesheet" href="/ArenaFinder-Web/css/beranda.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -319,13 +319,13 @@ $conn = new mysqli($servername, $username_db, $password_db, $dbname);
             <a class="nav-link active" href="">Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="aktivitas.php">Aktivitas</a>
+            <a class="nav-link" href="php/aktivitas.php">Aktivitas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="referensi.php">Referensi</a>
+            <a class="nav-link" href="php/referensi.php">Referensi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="info_mitra.php">Info Mitra</a>
+            <a class="nav-link" href="php/info_mitra.php">Info Mitra</a>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto"> <!-- Menggunakan 'ml-auto' untuk komponen di akhir navbar -->
@@ -334,7 +334,7 @@ $conn = new mysqli($servername, $username_db, $password_db, $dbname);
           if (isset($_SESSION['email'])) {
             // User is logged in, show the "Panel Pengelola" button
             echo '<li class="nav-item dropdown" id="nav-down1">
-                <a class="nav-link" id="nav-down-item1" href="/ArenaFinder/cpanel-admin-arenafinder/startbootstrap-sb-admin-2-gh-pages/" style="width: 200px;">
+                <a class="nav-link" id="nav-down-item1" href="cpanel-admin-arenafinder/startbootstrap-sb-admin-2-gh-pages/" style="width: 200px;">
                   <i class="fa-solid fa-id-card fa-flip" style="margin-right: 5px;"></i>
                   Panel Pengelola
                 </a>
@@ -342,10 +342,10 @@ $conn = new mysqli($servername, $username_db, $password_db, $dbname);
           } else {
             // User is not logged in, show the "Login" and "Register" buttons
             echo '<li class="nav-item dropdown" id="nav-down1">
-                <a class="nav-link" id="nav-down-item1" href="/ArenaFinder/cpanel-admin-arenafinder/startbootstrap-sb-admin-2-gh-pages/login.php" style="width: 100px;">Masuk</a>
+                <a class="nav-link" id="nav-down-item1" href="cpanel-admin-arenafinder/startbootstrap-sb-admin-2-gh-pages/login.php" style="width: 100px;">Masuk</a>
               </li>
               <li class="nav-item dropdown" id="nav-down1">
-                <a class="nav-link" id="nav-down-item2" href="/ArenaFinder/cpanel-admin-arenafinder/startbootstrap-sb-admin-2-gh-pages/register.php" style="width: 100px;">Daftar</a>
+                <a class="nav-link" id="nav-down-item2" href="cpanel-admin-arenafinder/startbootstrap-sb-admin-2-gh-pages/register.php" style="width: 100px;">Daftar</a>
               </li>';
           }
           ?>
@@ -356,11 +356,11 @@ $conn = new mysqli($servername, $username_db, $password_db, $dbname);
   </nav>
 
   <div class="constructor">
-    <img src="/ArenaFinder/img_asset/logo (1).png" class="img1 img-fluid" alt="..." />
-    <img src="/ArenaFinder/img_asset/logo2.png" class="img2 img-fluid" alt="..." />
+    <img src="/ArenaFinder-Web/img_asset/logo (1).png" class="img1 img-fluid" alt="..." />
+    <img src="/ArenaFinder-Web/img_asset/logo2.png" class="img2 img-fluid" alt="..." />
     <h1 id="judul" class="title">Aktivitas penunjang kehidupan yang lebih sehat dan menyenangkan</h1>
     <h1 id="judul" class="title2">Temukan Sekarang !!!</h1>
-    <form method="post" action="cari_jadwal.php">
+    <form method="post" action="php/cari_jadwal.php">
       <select id="inputOpsi" class="input-jenis-lapangan" name="jenis_lapangan" required>
         <option value="">Jenis Lapangan</option>
         <option value="Futsal">Futsal</option>
@@ -374,7 +374,7 @@ $conn = new mysqli($servername, $username_db, $password_db, $dbname);
       <button class="button" type="submit">Temukan</button>
     </form>
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
+      document.addEventListener('DOMContentLoaded', function() {
         flatpickr("#staticEmail", {
           enableTime: false, // Enable time selection
           minDate: "today", // Set the minimum date to today
@@ -386,37 +386,37 @@ $conn = new mysqli($servername, $username_db, $password_db, $dbname);
   </div>
 
   <div class="persegi"></div>
-  <a href="alur-pesan.php">
-    <button class="btn" type="button" style="font-weight: 100;" id="alur-btn">Alur Pemesanan
-      <img src="/ArenaFinder/img_asset/geocaching_40px (1).png" alt="">
+  <a href="php/alur-pesan.php">
+    <button class="btn" type="button" style="font-weight: 100; margin-top: -410px;" id="alur-btn">Alur Pemesanan
+      <img src="/ArenaFinder-Web/img_asset/geocaching_40px (1).png" alt="">
     </button>
   </a>
-  <a href="/ArenaFinder/php/aktivitas.php">
-    <button class="btn-1" type="button" style="font-weight: 100;">Aktivitas Komunitas
-      <img src="/ArenaFinder/img_asset/people_48px (1).png" alt="" id="aktiv-btn"></button>
+  <a href="php/aktivitas.php">
+    <button class="btn-1" type="button" style="font-weight: 100; margin-top: 100px;">Aktivitas Komunitas
+      <img src="/ArenaFinder-Web/img_asset/people_48px (1).png" alt="" id="aktiv-btn"></button>
   </a>
   <a href="status-lap.php">
     <button class="btn-2" type="button" style="font-weight: 100;">Status Lapangan
-      <img src="/ArenaFinder/img_asset/info_64px (1).png" alt="" id="status-btn"></button>
+      <img src="/ArenaFinder-Web/img_asset/info_64px (1).png" alt="" id="status-btn"></button>
   </a>
-  <a href="/ArenaFinder/cpanel-admin-arenafinder/startbootstrap-sb-admin-2-gh-pages/pesanan.php">
+  <a href="cpanel-admin-arenafinder/startbootstrap-sb-admin-2-gh-pages/pesanan.php">
     <button class="btn-3" type="button" style="font-weight: 100;">Daftar Pesanan
-      <img src="   https://cdn-icons-png.flaticon.com/512/1187/1187525.png " width="100" height="150" alt="" title=""
+      <img src="https://cdn-icons-png.flaticon.com/512/1187/1187525.png" width="100" height="150" alt="" title=""
         class="img-small"></button>
   </a>
 
   <div class="persegi2"></div>
   <div id="button-type">
     <button class="btn-4" type="button">
-      <img src="/ArenaFinder/img_asset/alex-_AOL4_fDQ3M-unsplash.jpg" alt="">Futsal</button>
+      <img src="/ArenaFinder-Web/img_asset/alex-_AOL4_fDQ3M-unsplash.jpg" alt="">Futsal</button>
     <button class="btn-5" type="button">
-      <img src="/ArenaFinder/img_asset/bulu tangkis.jpg" alt="">Bulu Tangkis</button>
+      <img src="/ArenaFinder-Web/img_asset/bulu tangkis.jpg" alt="">Bulu Tangkis</button>
     <button class="btn-6" type="button">
-      <img src="/ArenaFinder/img_asset/voli.jpg" alt="">Bola Voli</button>
+      <img src="/ArenaFinder-Web/img_asset/voli.jpg" alt="">Bola Voli</button>
     <button class="btn-7" type="button">
-      <img src="/ArenaFinder/img_asset/basket.jpg" alt="">Bola Basket</button>
+      <img src="/ArenaFinder-Web/img_asset/basket.jpg" alt="">Bola Basket</button>
     <button class="btn-8" type="button">
-      <img src="/ArenaFinder/img_asset/sepak bola.jpg" alt="">Sepak Bola</button>
+      <img src="/ArenaFinder-Web/img_asset/sepak bola.jpg" alt="">Sepak Bola</button>
   </div>
 
   <div class="community"> Rekomendasi Komunitas </div>
@@ -432,14 +432,14 @@ $conn = new mysqli($servername, $username_db, $password_db, $dbname);
       </div>
       <div class="carousel-inner mx-3 my-1">
         <div class="carousel-item active">
-          <img src="/ArenaFinder/img_asset/connor-coyne-OgqWLzWRSaI-unsplash.jpg" class="d-block w-100" alt="..."
+          <img src="/ArenaFinder-Web/img_asset/connor-coyne-OgqWLzWRSaI-unsplash.jpg" class="d-block w-100" alt="..."
             style="height: 500px;">
         </div>
         <div class="carousel-item">
-          <img src="/ArenaFinder/img_asset/badmin_community.jpg" class="d-block w-100" alt="..." style="height: 500px;">
+          <img src="/ArenaFinder-Web/img_asset/badmin_community.jpg" class="d-block w-100" alt="..." style="height: 500px;">
         </div>
         <div class="carousel-item">
-          <img src="/ArenaFinder/img_asset/bg-member.png" class="d-block w-100" alt="..." style="height: 500px;">
+          <img src="/ArenaFinder-Web/img_asset/bg-member.png" class="d-block w-100" alt="..." style="height: 500px;">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -478,8 +478,8 @@ $conn = new mysqli($servername, $username_db, $password_db, $dbname);
         // Output data of each row
         while ($row = $result->fetch_assoc()) {
           $namaGambar = $row['photo']; // Assuming the 'photo' column contains the image filename
-          $gambarURL = "/ArenaFinder/public/img/venue/" . $namaGambar;
-          ?>
+          $gambarURL = "/ArenaFinder-Web/public/img/venue/" . $namaGambar;
+      ?>
 
           <div class="card" style=" margin-left: 10px; height: 35rem; margin-top: -20px;">
             <!-- Use the data from the database to populate the card -->
@@ -503,7 +503,7 @@ $conn = new mysqli($servername, $username_db, $password_db, $dbname);
               <button href="#" class="tombol-aktivitas">Lihat Aktivitas</button>
             </div>
           </div>
-          <?php
+      <?php
         }
       } else {
         echo "0 results";
@@ -517,7 +517,7 @@ $conn = new mysqli($servername, $username_db, $password_db, $dbname);
 
 
 
-  <script src="/ArenaFinder/js/script.js"></script>
+  <script src="/ArenaFinder-Web/js/script.js"></script>
 
   <div class="container">
     <div class="footer">
@@ -555,8 +555,6 @@ $conn = new mysqli($servername, $username_db, $password_db, $dbname);
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
 
 </body>
 

@@ -2,9 +2,9 @@
 session_start();
 // Include your database connection code here
 $db_host = "localhost";
-$db_name = "tifz1761_arenafinder";
-$db_user = "tifz1761_root";
-$db_pass = "tifnganjuk321";
+$db_name = "arenafinder";
+$db_user = "root";
+$db_pass = "";
 
 // Establish a connection to the database
 $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
@@ -71,12 +71,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       // Execute the statement
       if ($stmtInsert->execute()) {
-        ?>
+?>
         <script>
           alert("Foto berhasil ditambahkan.");
           window.location.replace('info_mitra.php');
         </script>
-        <?php
+      <?php
         exit();
       } else {
         echo "Error executing SQL statement: " . $stmtInsert->error;
@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         alert("Foto berhasil dihapus.");
         window.location.replace('info_mitra.php');
       </script>
-      <?php
+<?php
       exit();
     } else {
       echo "Error executing delete statement: " . $stmtDelete->error;
@@ -124,7 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Info Mitra</title>
-  <link rel="stylesheet" href="css/info_mitra.css" />
+  <link rel="stylesheet" href="/ArenaFinder-Web/css/info_mitra.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -132,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/924b40cfb7.js" crossorigin="anonymous"></script>
-  <link rel="icon" href="img_asset/login.png">
+  <link rel="icon" href="/ArenaFinder-Web/img_asset/login.png">
   <style>
     body {
       overflow-x: hidden;
@@ -515,7 +515,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto my-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.php">Beranda</a>
+            <a class="nav-link" href="../beranda.php">Beranda</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="aktivitas.php">Aktivitas</a>
@@ -556,7 +556,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="first-con">
     <div class="img-container">
       <div>
-        <img src="img_asset/blessing.png" alt="">
+        <img src="/ArenaFinder-Web/img_asset/blessing.png" alt="">
       </div>
     </div>
 
@@ -646,20 +646,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h3>Fasilitas Tempat</h3>
             <div id="fasilitasTempat">
               <div style="margin-bottom: 20px;">
-                <img src="img_asset/toilet.jpg" alt="">
+                <img src="/ArenaFinder-Web/img_asset/toilet.jpg" alt="">
                 <h5 style="text-align: center;">Toilet</h5>
               </div>
 
               <div style="margin-bottom: 20px;">
-                <img src="img_asset/kursi.jpg" alt="">
+                <img src="/ArenaFinder-Web/img_asset/kursi.jpg" alt="">
                 <h5 style="text-align: center; width: 80px;">Kursi Penonton</h5>
               </div>
               <div style="margin-bottom: 20px;">
-                <img src="img_asset/parkiran.jpg" alt="">
+                <img src="/ArenaFinder-Web/img_asset/parkiran.jpg" alt="">
                 <h5 style="text-align: center;">Area Parkir</h5>
               </div>
               <div style="margin-bottom: 20px;">
-                <img src="img_asset/alex-_AOL4_fDQ3M-unsplash.jpg" alt="">
+                <img src="/ArenaFinder-Web/img_asset/alex-_AOL4_fDQ3M-unsplash.jpg" alt="">
                 <h5 style="text-align: center; width: 80px;">Lapangan Futsal</h5>
               </div>
             </div>
@@ -669,11 +669,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h3>Pengelola</h3>
             <div id="pengelolaTempat">
               <div class="pengelola-item">
-                <img src="img_asset/alex-_AOL4_fDQ3M-unsplash.jpg" alt="">
+                <img src="/ArenaFinder-Web/img_asset/alex-_AOL4_fDQ3M-unsplash.jpg" alt="">
                 <h5>Admin</h5>
               </div>
               <div class="pengelola-item">
-                <img src="img_asset/alex-_AOL4_fDQ3M-unsplash.jpg" alt="">
+                <img src="/ArenaFinder-Web/img_asset/alex-_AOL4_fDQ3M-unsplash.jpg" alt="">
                 <h5>Super Admin</h5>
               </div>
             </div>
@@ -683,11 +683,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h3>Sistem Keanggotaan</h3>
             <div id="pengelolaTempat">
               <div class="pengelola-item">
-                <img src="img_asset/alex-_AOL4_fDQ3M-unsplash.jpg" alt="">
+                <img src="/ArenaFinder-Web/img_asset/alex-_AOL4_fDQ3M-unsplash.jpg" alt="">
                 <h5>Member</h5>
               </div>
               <div class="pengelola-item">
-                <img src="img_asset/alex-_AOL4_fDQ3M-unsplash.jpg" alt="">
+                <img src="/ArenaFinder-Web/img_asset/alex-_AOL4_fDQ3M-unsplash.jpg" alt="">
                 <h5>Non Member</h5>
               </div>
             </div>
@@ -736,7 +736,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
           $q3 = mysqli_query($conn, $sql3);
           $count = 0; // Untuk menghitung jumlah kartu pada setiap baris
-          
+
           while ($row = mysqli_fetch_array($q3)) {
             // Membuka baris baru setiap kali 6 kartu telah ditampilkan
             if ($count % 4 == 0) {
@@ -748,7 +748,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo '<div class="card-body" style="display: flex; flex-direction: column; align-items: center; text-align: center; color: #02406d;">';
 
             $namaGambar = $row['photo'];
-            $gambarURL = "public/img/venue/" . $namaGambar;
+            $gambarURL = "/ArenaFinder-Web/public/img/venue/" . $namaGambar;
 
             echo '<img src="' . $gambarURL . '" alt="Gambar" style="width: 250px; height: 250px; border-radius: 10px;">';
             echo '<h5 class="card-title mt-3">' . $row['nama_aktivitas'] . '</h5>';
@@ -844,7 +844,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <?php
       // Jika pengguna sudah login, tampilkan elemen-elemen berikut
       if ($isLoggedIn) {
-        ?>
+      ?>
         <div class="deskripsi" style="width: 100%; margin-left: -65px;">
           <div class="card shadow"
             style="color: white; background: linear-gradient(to right, #02406D, 50%, white); border: none;">
@@ -862,8 +862,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             foreach ($imageData as $image) {
               $imageId = $image['id_galery'];
               $imageFilename = $image['photo'];
-              $imagePath = "public/img/venue/" . $imageFilename;
-              ?>
+              $imagePath = "/ArenaFinder-Web/public/img/venue/" . $imageFilename;
+            ?>
               <div class="card" style="border: none;">
                 <img src="<?= $imagePath; ?>" alt="Gambar" style="width: 250px; height: 250px; border-radius: 5px;">
 
@@ -875,7 +875,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     style="margin-bottom: 23px;">Hapus</button>
                 </form>
               </div>
-              <?php
+            <?php
             }
             ?>
           </div>
@@ -894,10 +894,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
 
 
-        <?php
+      <?php
       } else {
         // Jika pengguna belum login dan email tidak sesuai, tampilkan hanya data gambar
-        ?>
+      ?>
         <div class="deskripsi" style="width: 100%; margin-left: -65px;">
           <div class="card shadow"
             style="color: white; background: linear-gradient(to right, #02406D, 50%, white); border: none;">
@@ -915,16 +915,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           foreach ($imageData as $image) {
             $imageId = $image['id_galery'];
             $imageFilename = $image['photo'];
-            $imagePath = "public/img/venue/" . $imageFilename;
-            ?>
+            $imagePath = "/ArenaFinder-Web/public/img/venue/" . $imageFilename;
+          ?>
             <div class="card" style="border: none;">
               <img src="<?= $imagePath; ?>" alt="Gambar" style="width: 250px; height: 250px; border-radius: 5px;">
             </div>
-            <?php
+          <?php
           }
           ?>
         </div>
-        <?php
+      <?php
       }
 
       ?>
@@ -951,7 +951,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
       <div class="card" style="margin-top: 30px; margin-left: -70px; width: 500px; border: 1px solid white;">
         <div class="card-body" style="display: flex; align-items: center;">
-          <img src="img_asset/telepon.png" alt="" style="width: 20%; border-radius: 5px;">
+          <img src="/ArenaFinder-Web/img_asset/telepon.png" alt="" style="width: 20%; border-radius: 5px;">
           <h3 style="margin-left: 20px;">082247344544</h3>
           <div class="card"
             style="display: flex; width: 150px; text-align: center; height: 30px; background-color: #02406D; color: white; margin-left: 50px;">
@@ -994,7 +994,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Tambahkan kelas "active" ke tautan yang diklik
         link.classList.add("active");
       });
-    });  </script>
+    });
+  </script>
 
   <div class="footer">
     <h1 style="font-size: 20px; color: white;">Arena</h1>
@@ -1024,9 +1025,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-
-</body>
+  </body>
 
 </html>

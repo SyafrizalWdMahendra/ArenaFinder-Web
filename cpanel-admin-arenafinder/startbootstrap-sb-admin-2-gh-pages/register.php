@@ -33,14 +33,14 @@ if (isset($_POST["register"])) {
     $rowCount = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'"));
 
     if ($rowCount > 0) {
-      ?>
+?>
       <script>
         alert("Pengguna dengan email ini sudah terdaftar!");
         window.location.replace('register.php');
       </script>
-      <?php
+    <?php
     } elseif (usernameExists($conn, $username)) {
-      ?>
+    ?>
       <script>
         alert("Nama pengguna sudah terdaftar. Mohon pilih nama pengguna lain.");
         window.location.replace('register.php');
@@ -50,7 +50,7 @@ if (isset($_POST["register"])) {
       // Cek validasi sandi akun
       if (!isValidPassword($password)) {
         // Notifikasi peringatan jika sandi salah
-        ?>
+      ?>
         <script>
           alert("Password harus memiliki 8 sampai 12 karakter, mengandung angka, huruf besar, huruf kecil, dan karakter khusus.");
           window.location.replace('register.php');
@@ -79,7 +79,7 @@ if (isset($_POST["register"])) {
           $mail->SMTPSecure = 'tls';
 
           $mail->Username = 'mahennekkers27@gmail.com';
-          $mail->Password = 'fxqa zwoq vuji mhlk';
+          $mail->Password = 'edvv aqse wyrw iwme';
 
           $mail->setFrom('arenafinder.app@gmail.com', 'OTP Verification');
           $mail->addAddress($_POST["email"]);
@@ -92,21 +92,20 @@ if (isset($_POST["register"])) {
               <b>arenafinder.app@gmail.com</b>";
 
           if (!$mail->send()) {
-            ?>
+        ?>
             <script>
-              alert("<?php echo "Daftar akun gagal, email tidak valid" ?>");
+              alert("<?php echo 'Daftar akun gagal, email tidak valid'; ?>");
             </script>
-            <?php
+          <?php
           } else {
-            ?>
+          ?>
             <script>
-              alert("<?php echo "Daftar akun sukses, kode OTP dikirim ke " . $email ?>");
-              window.location.replace('verification.php');
+              alert("<?php echo 'Kode OTP berhasil dikirimkan ke email anda'; ?>");
+              window.location.href = 'verification.php'; // Redirect to verification.php
             </script>
-            <?php
+  <?php
           }
         }
-
       }
     }
   }
@@ -119,7 +118,7 @@ if (isset($message)) {
     alert("<?php echo $message; ?>");
     window.location.replace('register.php');
   </script>
-  <?php
+<?php
   exit();
 }
 
@@ -159,7 +158,7 @@ function isValidPassword($password)
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-  <link rel="icon" href="../img_asset/login.png">
+  <link rel="icon" href="/ArenaFinder-Web/img_asset/login.png">
   <style>
     body {
       font-family: "Kanit", sans-serif;
@@ -204,7 +203,7 @@ function isValidPassword($password)
                 <div class="p-3">
                   <div class="text-center">
                     <h1 class="h2 text-gray-900 mb-2 ">Daftar Akun</h1>
-                    <img src="/img_asset/login.png" alt="" style="width: 200px; height: auto; margin-bottom: 20px" />
+                    <img src="/ArenaFinder-Web/img_asset/login.png" alt="" style="width: 200px; height: auto; margin-bottom: 20px" />
                   </div>
                   <form class="user" method="POST" action="#" autocomplete="off" name="register">
                     <div class="form-group">

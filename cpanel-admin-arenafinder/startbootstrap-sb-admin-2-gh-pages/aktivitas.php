@@ -208,7 +208,16 @@ if ($error || $sukses || $error2 || $sukses2) {
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/924b40cfb7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="icon" href="../img_asset/login.png">
+    <link rel="icon" href="/ArenaFinder-Web/img_asset/login.png">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
     <style>
         body {
             font-family: "Kanit", sans-serif;
@@ -228,7 +237,7 @@ if ($error || $sukses || $error2 || $sukses2) {
 
     <script>
         // JavaScript code to focus on the search input when "F" key is pressed
-        document.addEventListener('keydown', function (event) {
+        document.addEventListener('keydown', function(event) {
             // Check if the pressed key is 'F' (case-insensitive)
             if (event.key.toLowerCase() === '/') {
                 // Focus on the search input
@@ -274,7 +283,7 @@ if ($error || $sukses || $error2 || $sukses2) {
 
             <!-- Nav Item - Web -->
             <li class="nav-item">
-                <a class="nav-link" href="../index.php">
+                <a class="nav-link" href="/ArenaFinder-Web/beranda.php">
                     <i class="fa-brands fa-edge"></i>
                     <span>Lihat Website</span></a>
             </li>
@@ -332,10 +341,10 @@ if ($error || $sukses || $error2 || $sukses2) {
 
             <!-- Your Badge Script with AJAX -->
             <script>
-                setInterval(function () {
+                setInterval(function() {
                     function loadDoc() {
                         var xhttp = new XMLHttpRequest();
-                        xhttp.onreadystatechange = function () {
+                        xhttp.onreadystatechange = function() {
                             if (this.readyState == 4 && this.status == 200) {
                                 document.getElementById("pesanan-link").innerHTML = this.responseText;
                             }
@@ -434,7 +443,7 @@ if ($error || $sukses || $error2 || $sukses2) {
                             // Periksa level pengguna
                             if ($level != 'SUPER ADMIN') {
                                 // Tampilkan form hanya jika level bukan 'SUPER ADMIN'
-                                ?>
+                            ?>
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
                                         style="background-color: #02406d; color: white">
@@ -466,7 +475,7 @@ if ($error || $sukses || $error2 || $sukses2) {
                                                     </div>
                                                 </div>
                                                 <script>
-                                                    document.addEventListener('DOMContentLoaded', function () {
+                                                    document.addEventListener('DOMContentLoaded', function() {
                                                         // Function to create and display error messages
                                                         function showError(element, message) {
                                                             // Check if an error message element already exists
@@ -499,7 +508,7 @@ if ($error || $sukses || $error2 || $sukses2) {
                                                         var namaInput = document.getElementById('nama');
 
                                                         // Add input event listeners to trigger validation
-                                                        namaInput.addEventListener('input', function () {
+                                                        namaInput.addEventListener('input', function() {
                                                             var namaTempatValue = this.value;
 
                                                             if (/^\d+$/.test(namaTempatValue)) {
@@ -535,7 +544,7 @@ if ($error || $sukses || $error2 || $sukses2) {
                                         </div>
 
                                         <script>
-                                            document.addEventListener('DOMContentLoaded', function () {
+                                            document.addEventListener('DOMContentLoaded', function() {
                                                 flatpickr("#tanggal", {
                                                     enableTime: false, // Enable time selection
                                                     minDate: "today", // Set the minimum date to today
@@ -547,11 +556,11 @@ if ($error || $sukses || $error2 || $sukses2) {
                                         <div class="mb-3 row">
                                             <label for="keanggotaan" class="col-sm-2 col-form-label">Keanggotaan</label>
                                             <div class="col-sm-10">
-                                                <input type="radio" id="member" name="keanggotaan" value="Member" <?php echo ($anggota == "Member") ? 'checked' : ''; ?>     <?php echo ($sportFromVenues == "Renang") ? 'disabled' : ''; ?> required>
+                                                <input type="radio" id="member" name="keanggotaan" value="Member" <?php echo ($anggota == "Member") ? 'checked' : ''; ?> <?php echo ($sportFromVenues == "Renang") ? 'disabled' : ''; ?> required>
                                                 <label for="member">Member</label>
 
                                                 <input type="radio" id="nonmember" name="keanggotaan" value="Non Member"
-                                                    style="margin-left: 20px;" <?php echo ($anggota == "Non Member") ? 'checked' : ''; ?>     <?php echo ($sportFromVenues == "Renang") ? 'disabled' : ''; ?> required>
+                                                    style="margin-left: 20px;" <?php echo ($anggota == "Non Member") ? 'checked' : ''; ?> <?php echo ($sportFromVenues == "Renang") ? 'disabled' : ''; ?> required>
                                                 <label for="nonmember">Non Member</label>
                                             </div>
                                         </div>
@@ -563,29 +572,29 @@ if ($error || $sukses || $error2 || $sukses2) {
                                                 <select class="form-control" name="jam_main" id="jam_main" required>
                                                     <option value="">-Jam Main-</option>
                                                     <option value="1" <?php if ($jam == "1")
-                                                        echo "selected" ?>>1 jam
-                                                        </option>
-                                                        <option value="2" <?php if ($jam == "2")
-                                                        echo "selected" ?>>2 jam
-                                                        </option>
-                                                        <option value="3" <?php if ($jam == "3")
-                                                        echo "selected" ?>>3 jam
-                                                        </option>
-                                                        <option value="4" <?php if ($jam == "4")
-                                                        echo "selected" ?>>4 jam
-                                                        </option>
-                                                        <option value="5" <?php if ($jam == "5")
-                                                        echo "selected" ?>>5 jam
-                                                        </option>
-                                                    </select>
-                                                </div>
+                                                                            echo "selected" ?>>1 jam
+                                                    </option>
+                                                    <option value="2" <?php if ($jam == "2")
+                                                                            echo "selected" ?>>2 jam
+                                                    </option>
+                                                    <option value="3" <?php if ($jam == "3")
+                                                                            echo "selected" ?>>3 jam
+                                                    </option>
+                                                    <option value="4" <?php if ($jam == "4")
+                                                                            echo "selected" ?>>4 jam
+                                                    </option>
+                                                    <option value="5" <?php if ($jam == "5")
+                                                                            echo "selected" ?>>5 jam
+                                                    </option>
+                                                </select>
                                             </div>
+                                        </div>
 
-                                            <div class="mb-3 row">
-                                                <label for="harga" class="col-sm-2 col-form-label">Harga</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="harga" name="harga" readonly
-                                                        value="<?php echo $harga ?>">
+                                        <div class="mb-3 row">
+                                            <label for="harga" class="col-sm-2 col-form-label">Harga</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="harga" name="harga" readonly
+                                                    value="<?php echo $harga ?>">
                                             </div>
                                         </div>
 
@@ -593,7 +602,7 @@ if ($error || $sukses || $error2 || $sukses2) {
                                             <label for="gambar" class="col-sm-2 col-form-label">Gambar</label>
                                             <div class="col-sm-10">
                                                 <input class="col-xxl-8 col-12" type="file" id="foto" name="foto"
-                                                    required="required" style="margin-left: -10px;"/>
+                                                    required="required" style="margin-left: -10px;" />
                                             </div>
                                         </div>
 
@@ -620,360 +629,360 @@ if ($error || $sukses || $error2 || $sukses2) {
                                         </form>
                                     </div>
                                 </div>
-                            </div>
                         </div>
-                    <?php } ?>
+                    </div>
+                <?php } ?>
 
-                    <script>
-                        const jamMainSelect = document.getElementById("jam_main");
-                        const hargaInput = document.getElementById("harga");
-                        const jenisLapanganSelect = document.getElementById("jenis_olga");
-                        const keanggotaanMember = document.getElementById("member");
-                        const keanggotaanNonMember = document.getElementById("nonmember");
+                <script>
+                    const jamMainSelect = document.getElementById("jam_main");
+                    const hargaInput = document.getElementById("harga");
+                    const jenisLapanganSelect = document.getElementById("jenis_olga");
+                    const keanggotaanMember = document.getElementById("member");
+                    const keanggotaanNonMember = document.getElementById("nonmember");
 
-                        jamMainSelect.addEventListener("input", calculatePrice);
-                        jenisLapanganSelect.addEventListener("change", calculatePrice);
-                        keanggotaanMember.addEventListener("change", calculatePrice);
-                        keanggotaanNonMember.addEventListener("change", calculatePrice);
+                    jamMainSelect.addEventListener("input", calculatePrice);
+                    jenisLapanganSelect.addEventListener("change", calculatePrice);
+                    keanggotaanMember.addEventListener("change", calculatePrice);
+                    keanggotaanNonMember.addEventListener("change", calculatePrice);
 
-                        function calculatePrice() {
-                            const selectedJamMain = jamMainSelect.value;
-                            const selectedLapangan = jenisLapanganSelect.value;
-                            const isMember = keanggotaanMember.checked;
-                            const isNonMember = keanggotaanNonMember.checked;
+                    function calculatePrice() {
+                        const selectedJamMain = jamMainSelect.value;
+                        const selectedLapangan = jenisLapanganSelect.value;
+                        const isMember = keanggotaanMember.checked;
+                        const isNonMember = keanggotaanNonMember.checked;
 
-                            // Assuming the duration is 1 hour for simplicity, you can modify this based on your actual input
-                            const durationHours = 1;
-                            let basePricePerHour = 0;
+                        // Assuming the duration is 1 hour for simplicity, you can modify this based on your actual input
+                        const durationHours = 1;
+                        let basePricePerHour = 0;
 
-                            switch (selectedLapangan) {
-                                case "Sepak bola":
-                                    basePricePerHour = 50000;
-                                    break;
-                                case "Bola Voli":
-                                    basePricePerHour = 50000;
-                                    break;
-                                case "Bola Basket":
-                                    basePricePerHour = 50000;
-                                    break;
-                                case "Tenis Lapangan":
-                                    basePricePerHour = 18000;
-                                    break;
-                                case "Bulu tangkis":
-                                    basePricePerHour = 18000;
-                                    break;
-                                case "Renang":
-                                    basePricePerHour = 10000;
-                                    break;
-                                case "Futsal":
-                                    if (isMember) {
-                                        // Member pricing
-                                        basePricePerHour = 90000;
-                                    } else if (isNonMember) {
-                                        // Non-Member pricing
-                                        basePricePerHour = 105000;
-                                    } else {
-                                        // Neither is selected, set a default value or handle accordingly
-                                        hargaInput.value = "Pilih keanggotaan terlebih dahulu";
-                                        hargaInput.style.color = "red";
-                                        return;
-                                    }
-                                    break;
-                                default:
-                                    // Default case, cabor not recognized
-                                    hargaInput.value = "Harga tidak diketahui";
-                                    hargaInput.style.color = "black";
+                        switch (selectedLapangan) {
+                            case "Sepak bola":
+                                basePricePerHour = 50000;
+                                break;
+                            case "Bola Voli":
+                                basePricePerHour = 50000;
+                                break;
+                            case "Bola Basket":
+                                basePricePerHour = 50000;
+                                break;
+                            case "Tenis Lapangan":
+                                basePricePerHour = 18000;
+                                break;
+                            case "Bulu tangkis":
+                                basePricePerHour = 18000;
+                                break;
+                            case "Renang":
+                                basePricePerHour = 10000;
+                                break;
+                            case "Futsal":
+                                if (isMember) {
+                                    // Member pricing
+                                    basePricePerHour = 90000;
+                                } else if (isNonMember) {
+                                    // Non-Member pricing
+                                    basePricePerHour = 105000;
+                                } else {
+                                    // Neither is selected, set a default value or handle accordingly
+                                    hargaInput.value = "Pilih keanggotaan terlebih dahulu";
+                                    hargaInput.style.color = "red";
                                     return;
-                            }
-
-                            // Calculate total price
-                            const totalPrice = durationHours * basePricePerHour * selectedJamMain;
-
-                            hargaInput.value = totalPrice;
-
-                            // Remove any previous warning
-                            hargaInput.style.color = "black";
+                                }
+                                break;
+                            default:
+                                // Default case, cabor not recognized
+                                hargaInput.value = "Harga tidak diketahui";
+                                hargaInput.style.color = "black";
+                                return;
                         }
-                    </script>
+
+                        // Calculate total price
+                        const totalPrice = durationHours * basePricePerHour * selectedJamMain;
+
+                        hargaInput.value = totalPrice;
+
+                        // Remove any previous warning
+                        hargaInput.style.color = "black";
+                    }
+                </script>
 
 
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4" id="tabel-card">
-                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
-                            style="color: white; background-color: #02406d;">
-                            <h6 class="m-0 font-weight-bold">Tabel <span style="color: #a1ff9f">Aktivitas</span></h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <?php if ($error2 || $sukses2): ?>
-                                    <div class="alert <?php echo $error2 ? 'alert-danger' : 'alert-success'; ?>"
-                                        role="alert">
-                                        <?php echo $error2 ? $error2 : $sukses2; ?>
-                                    </div>
-                                <?php endif; ?>
-                                <form action="aktivitas.php" method="GET">
-                                    <div class="form-group" style="display: flex; gap: 10px;">
-                                        <input type="text" name="search" class="form-control" id="searchInput"
-                                            style="width: 30%;" placeholder="Tekan / untuk Mencari Aktivitas"
-                                            value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
-                                        <button type="submit" class="btn btn-info" id="searchButton">Cari</button>
-                                        <?php if (isset($_GET['search'])): ?>
-                                            <a href="aktivitas.php" class="btn btn-secondary">Hapus Pencarian</a>
-                                        <?php endif; ?>
-                                    </div>
-                                </form>
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4" id="tabel-card">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
+                        style="color: white; background-color: #02406d;">
+                        <h6 class="m-0 font-weight-bold">Tabel <span style="color: #a1ff9f">Aktivitas</span></h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <?php if ($error2 || $sukses2): ?>
+                                <div class="alert <?php echo $error2 ? 'alert-danger' : 'alert-success'; ?>"
+                                    role="alert">
+                                    <?php echo $error2 ? $error2 : $sukses2; ?>
+                                </div>
+                            <?php endif; ?>
+                            <form action="aktivitas.php" method="GET">
+                                <div class="form-group" style="display: flex; gap: 10px;">
+                                    <input type="text" name="search" class="form-control" id="searchInput"
+                                        style="width: 30%;" placeholder="Tekan / untuk Mencari Aktivitas"
+                                        value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+                                    <button type="submit" class="btn btn-info" id="searchButton">Cari</button>
+                                    <?php if (isset($_GET['search'])): ?>
+                                        <a href="aktivitas.php" class="btn btn-secondary">Hapus Pencarian</a>
+                                    <?php endif; ?>
+                                </div>
+                            </form>
 
-                                <script>
-                                    document.getElementById('searchButton').addEventListener('click', function (event) {
-                                        var searchInput = document.getElementById('searchInput');
+                            <script>
+                                document.getElementById('searchButton').addEventListener('click', function(event) {
+                                    var searchInput = document.getElementById('searchInput');
 
-                                        if (searchInput.value === '') {
-                                            event.preventDefault(); // Prevent form submission if the search field is empty
-                                            searchInput.placeholder = 'Kolom pencarian tidak boleh kosong!';
-                                            searchInput.style.borderColor = 'red'; // Change border color to red
-                                        } else {
-                                            // Perform AJAX request to check if the value exists in the database
-                                            var xhr = new XMLHttpRequest();
-                                            xhr.open('GET', 'aktivitas.php?checkValue=' + encodeURIComponent(searchInput.value), true);
+                                    if (searchInput.value === '') {
+                                        event.preventDefault(); // Prevent form submission if the search field is empty
+                                        searchInput.placeholder = 'Kolom pencarian tidak boleh kosong!';
+                                        searchInput.style.borderColor = 'red'; // Change border color to red
+                                    } else {
+                                        // Perform AJAX request to check if the value exists in the database
+                                        var xhr = new XMLHttpRequest();
+                                        xhr.open('GET', 'aktivitas.php?checkValue=' + encodeURIComponent(searchInput.value), true);
 
-                                            xhr.onload = function () {
-                                                if (xhr.status === 200) {
-                                                    console.log(xhr.responseText);
-                                                    var response = JSON.parse(xhr.responseText);
-                                                    if (response.count === 0) {
-                                                        // Value not found in the database
-                                                        event.preventDefault();
-                                                        searchInput.placeholder = 'Pencarian tidak ditemukan!';
-                                                        searchInput.style.borderColor = 'red';
-                                                    } else {
-                                                        // Reset styles
-                                                        searchInput.placeholder = 'Cari Aktivitas';
-                                                        searchInput.style.borderColor = '';
-                                                    }
+                                        xhr.onload = function() {
+                                            if (xhr.status === 200) {
+                                                console.log(xhr.responseText);
+                                                var response = JSON.parse(xhr.responseText);
+                                                if (response.count === 0) {
+                                                    // Value not found in the database
+                                                    event.preventDefault();
+                                                    searchInput.placeholder = 'Pencarian tidak ditemukan!';
+                                                    searchInput.style.borderColor = 'red';
+                                                } else {
+                                                    // Reset styles
+                                                    searchInput.placeholder = 'Cari Aktivitas';
+                                                    searchInput.style.borderColor = '';
                                                 }
-                                            };
+                                            }
+                                        };
 
-                                            xhr.send();
-                                        }
-                                    });
+                                        xhr.send();
+                                    }
+                                });
 
-                                    document.getElementById('searchInput').addEventListener('click', function () {
-                                        var searchInput = document.getElementById('searchInput');
+                                document.getElementById('searchInput').addEventListener('click', function() {
+                                    var searchInput = document.getElementById('searchInput');
+                                    searchInput.placeholder = 'Cari Aktivitas';
+                                    searchInput.style.borderColor = '';
+                                });
+
+                                document.addEventListener('keydown', function(event) {
+                                    var searchInput = document.getElementById('searchInput');
+
+                                    // Check if the 'F' key is pressed and the placeholder is 'Kolom pencarian tidak boleh kosong!'
+                                    if (event.key.toLowerCase() === '/' && searchInput.placeholder === 'Kolom pencarian tidak boleh kosong!') {
                                         searchInput.placeholder = 'Cari Aktivitas';
                                         searchInput.style.borderColor = '';
-                                    });
-
-                                    document.addEventListener('keydown', function (event) {
-                                        var searchInput = document.getElementById('searchInput');
-
-                                        // Check if the 'F' key is pressed and the placeholder is 'Kolom pencarian tidak boleh kosong!'
-                                        if (event.key.toLowerCase() === '/' && searchInput.placeholder === 'Kolom pencarian tidak boleh kosong!') {
-                                            searchInput.placeholder = 'Cari Aktivitas';
-                                            searchInput.style.borderColor = '';
-                                        }
-                                    });
-                                </script>
+                                    }
+                                });
+                            </script>
 
 
-                                <table class="table text-nowrap table-centered table-hover" id="dataTable" width="100%"
-                                    cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">No.</th>
-                                            <?php if ($_SESSION['email'] === 'arenafinder.app@gmail.com'): ?>
-                                                <th scope="col">
-                                                    Email Pengelola
-                                                </th>
-                                            <?php endif; ?>
-                                            <?php if ($_SESSION['email'] === 'arenafinder.app@gmail.com'): ?>
-                                                <th scope="col">
-                                                    Nama Tempat
-                                                </th>
-                                            <?php endif; ?>
-                                            <th scope="col">Nama Aktivitas</th>
-                                            <th scope="col">Deskripsi Aktivitas</th>
-                                            <th scope="col">Jenis Olahraga</th>
-                                            <th scope="col">Lokasi</th>
-                                            <th scope="col">Tanggal Main</th>
-                                            <th scope="col">Keanggotaan</th>
-                                            <th scope="col">Jam Main</th>
-                                            <th scope="col">Harga</th>
-                                            <th scope="col">Foto</th>
-                                            <th scope="col">Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        if (isset($_GET['reset'])) {
-                                            // Pengguna menekan tombol "Hapus Pencarian"
-                                            header("Location: aktivitas.php"); // Mengarahkan ke halaman tanpa parameter pencarian
-                                            exit();
-                                        }
+                            <table class="table text-nowrap table-centered table-hover" id="dataTable" width="100%"
+                                cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No.</th>
+                                        <?php if ($_SESSION['email'] === 'arenafinder.app@gmail.com'): ?>
+                                            <th scope="col">
+                                                Email Pengelola
+                                            </th>
+                                        <?php endif; ?>
+                                        <?php if ($_SESSION['email'] === 'arenafinder.app@gmail.com'): ?>
+                                            <th scope="col">
+                                                Nama Tempat
+                                            </th>
+                                        <?php endif; ?>
+                                        <th scope="col">Nama Aktivitas</th>
+                                        <th scope="col">Deskripsi Aktivitas</th>
+                                        <th scope="col">Jenis Olahraga</th>
+                                        <th scope="col">Lokasi</th>
+                                        <th scope="col">Tanggal Main</th>
+                                        <th scope="col">Keanggotaan</th>
+                                        <th scope="col">Jam Main</th>
+                                        <th scope="col">Harga</th>
+                                        <th scope="col">Foto</th>
+                                        <th scope="col">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    if (isset($_GET['reset'])) {
+                                        // Pengguna menekan tombol "Hapus Pencarian"
+                                        header("Location: aktivitas.php"); // Mengarahkan ke halaman tanpa parameter pencarian
+                                        exit();
+                                    }
 
-                                        $jumlahDataPerHalaman = 3;
+                                    $jumlahDataPerHalaman = 3;
 
-                                        // Perform the query to get the total number of rows
-                                        $queryCount = mysqli_query($conn, "SELECT COUNT(*) as total FROM venue_aktivitas");
-                                        $countResult = mysqli_fetch_assoc($queryCount);
-                                        $jumlahData = $countResult['total'];
+                                    // Perform the query to get the total number of rows
+                                    $queryCount = mysqli_query($conn, "SELECT COUNT(*) as total FROM venue_aktivitas");
+                                    $countResult = mysqli_fetch_assoc($queryCount);
+                                    $jumlahData = $countResult['total'];
 
-                                        // Calculate the total number of pages
-                                        $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
+                                    // Calculate the total number of pages
+                                    $jumlahHalaman = ceil($jumlahData / $jumlahDataPerHalaman);
 
-                                        // Get the current page
-                                        $page = (isset($_GET["page"])) ? $_GET["page"] : 1;
+                                    // Get the current page
+                                    $page = (isset($_GET["page"])) ? $_GET["page"] : 1;
 
-                                        // Calculate the starting data index for the current page
-                                        $awalData = ($page - 1) * $jumlahDataPerHalaman;
+                                    // Calculate the starting data index for the current page
+                                    $awalData = ($page - 1) * $jumlahDataPerHalaman;
 
-                                        $email = $_SESSION['email'];
+                                    $email = $_SESSION['email'];
 
-                                        if ($email === 'arenafinder.app@gmail.com') {
-                                            // Jika email adalah arenafinder.app@gmail.com, tampilkan semua data
-                                            if (isset($_GET['search'])) {
-                                                $searchTerm = $conn->real_escape_string($_GET['search']);
-                                                $sql = "SELECT va.*, v.location, v.email, v.venue_name
+                                    if ($email === 'arenafinder.app@gmail.com') {
+                                        // Jika email adalah arenafinder.app@gmail.com, tampilkan semua data
+                                        if (isset($_GET['search'])) {
+                                            $searchTerm = $conn->real_escape_string($_GET['search']);
+                                            $sql = "SELECT va.*, v.location, v.email, v.venue_name
                                                         FROM venue_aktivitas va
                                                         JOIN venues v ON va.id_venue = v.id_venue
                                                         WHERE va.nama_aktivitas LIKE '%$searchTerm%'
                                                         ORDER BY va.id_aktivitas DESC
                                                         LIMIT $awalData, $jumlahDataPerHalaman";
-                                            } else {
-                                                $sql = "SELECT va.*, v.location, v.email, v.venue_name
+                                        } else {
+                                            $sql = "SELECT va.*, v.location, v.email, v.venue_name
                                                         FROM venue_aktivitas va
                                                         JOIN venues v ON va.id_venue = v.id_venue
                                                         ORDER BY va.id_aktivitas DESC
                                                         LIMIT $awalData, $jumlahDataPerHalaman";
-                                            }
-                                        } else {
-                                            // Jika email bukan arenafinder.app@gmail.com, tampilkan data sesuai dengan session email
-                                            if (isset($_GET['search'])) {
-                                                $searchTerm = $conn->real_escape_string($_GET['search']);
-                                                $sql = "SELECT va.*, v.location, v.email, v.venue_name
+                                        }
+                                    } else {
+                                        // Jika email bukan arenafinder.app@gmail.com, tampilkan data sesuai dengan session email
+                                        if (isset($_GET['search'])) {
+                                            $searchTerm = $conn->real_escape_string($_GET['search']);
+                                            $sql = "SELECT va.*, v.location, v.email, v.venue_name
                                                         FROM venue_aktivitas va
                                                         JOIN venues v ON va.id_venue = v.id_venue
                                                         WHERE va.nama_aktivitas LIKE '%$searchTerm%' AND v.email = '$email'
                                                         ORDER BY va.id_aktivitas DESC
                                                         LIMIT $awalData, $jumlahDataPerHalaman";
-                                            } else {
-                                                $sql = "SELECT va.*, v.location, v.email, v.venue_name
+                                        } else {
+                                            $sql = "SELECT va.*, v.location, v.email, v.venue_name
                                                         FROM venue_aktivitas va
                                                         JOIN venues v ON va.id_venue = v.id_venue
                                                         WHERE v.email = '$email'
                                                         ORDER BY va.id_aktivitas DESC
                                                         LIMIT $awalData, $jumlahDataPerHalaman";
-                                            }
                                         }
+                                    }
 
-                                        $aktivitas = mysqli_query($conn, $sql);
-                                        $urut = 1 + $awalData;
+                                    $aktivitas = mysqli_query($conn, $sql);
+                                    $urut = 1 + $awalData;
 
-                                        while ($r2 = mysqli_fetch_array($aktivitas)) {
-                                            $id = $r2['id_aktivitas'];
-                                            $email = $r2['email'];
-                                            $venueName = $r2['venue_name'];
-                                            $desc = $r2['desc_aktivitas'];
-                                            $nama = $r2['nama_aktivitas'];
-                                            $jenis = $r2['sport'];
-                                            $lokasi = $r2['location']; // Ambil data dari kolom location di tabel venues
-                                            $tanggal = $r2['date'];
-                                            $anggota = $r2['membership'];
-                                            $jam = $r2['jam_main'];
-                                            $harga = $r2['price'];
-                                            $foto = $r2['photo'];
-                                            ?>
-                                            <tr>
-                                                <th scope="row">
-                                                    <?php echo $urut++ ?>
-                                                </th>
-                                                <?php if ($_SESSION['email'] === 'arenafinder.app@gmail.com'): ?>
-                                                    <td scope="row">
-                                                        <?php echo $email ?>
-                                                    </td>
-                                                <?php endif; ?>
-                                                <?php if ($_SESSION['email'] === 'arenafinder.app@gmail.com'): ?>
-                                                    <td scope="row">
-                                                        <?php echo $venueName ?>
-                                                    </td>
-                                                <?php endif; ?>
-                                                <td scope="row"
-                                                    style="overflow: hidden; word-wrap: break-word; white-space: normal;">
-                                                    <?php echo $nama ?>
-                                                </td>
-                                                <td scope="row"
-                                                    style="overflow: hidden; word-wrap: break-word; white-space: normal;">
-                                                    <?php echo $desc ?>
-                                                </td>
+                                    while ($r2 = mysqli_fetch_array($aktivitas)) {
+                                        $id = $r2['id_aktivitas'];
+                                        $email = $r2['email'];
+                                        $venueName = $r2['venue_name'];
+                                        $desc = $r2['desc_aktivitas'];
+                                        $nama = $r2['nama_aktivitas'];
+                                        $jenis = $r2['sport'];
+                                        $lokasi = $r2['location']; // Ambil data dari kolom location di tabel venues
+                                        $tanggal = $r2['date'];
+                                        $anggota = $r2['membership'];
+                                        $jam = $r2['jam_main'];
+                                        $harga = $r2['price'];
+                                        $foto = $r2['photo'];
+                                    ?>
+                                        <tr>
+                                            <th scope="row">
+                                                <?php echo $urut++ ?>
+                                            </th>
+                                            <?php if ($_SESSION['email'] === 'arenafinder.app@gmail.com'): ?>
                                                 <td scope="row">
-                                                    <?php echo $jenis ?>
+                                                    <?php echo $email ?>
                                                 </td>
-                                                <td scope="row"
-                                                    style="overflow: hidden; word-wrap: break-word; white-space: normal;">
-                                                    <?php echo $lokasi ?>
-                                                </td>
+                                            <?php endif; ?>
+                                            <?php if ($_SESSION['email'] === 'arenafinder.app@gmail.com'): ?>
                                                 <td scope="row">
-                                                    <?php echo $tanggal ?>
+                                                    <?php echo $venueName ?>
                                                 </td>
-                                                <td scope="row">
-                                                    <?php echo $anggota ?>
-                                                </td>
-                                                <td scope="row">
-                                                    <?php echo $jam ?>
-                                                    Jam
-                                                </td>
-                                                <td scope="row">
-                                                    <?php echo $harga ?>
-                                                </td>
-                                                <td scope="row">
-                                                    <img src="../public/img/venue/<?php echo $foto; ?>" alt="Image"
-                                                        style="width: 100px; height: 100px;">
-                                                </td>
+                                            <?php endif; ?>
+                                            <td scope="row"
+                                                style="overflow: hidden; word-wrap: break-word; white-space: normal;">
+                                                <?php echo $nama ?>
+                                            </td>
+                                            <td scope="row"
+                                                style="overflow: hidden; word-wrap: break-word; white-space: normal;">
+                                                <?php echo $desc ?>
+                                            </td>
+                                            <td scope="row">
+                                                <?php echo $jenis ?>
+                                            </td>
+                                            <td scope="row"
+                                                style="overflow: hidden; word-wrap: break-word; white-space: normal;">
+                                                <?php echo $lokasi ?>
+                                            </td>
+                                            <td scope="row">
+                                                <?php echo $tanggal ?>
+                                            </td>
+                                            <td scope="row">
+                                                <?php echo $anggota ?>
+                                            </td>
+                                            <td scope="row">
+                                                <?php echo $jam ?>
+                                                Jam
+                                            </td>
+                                            <td scope="row">
+                                                <?php echo $harga ?>
+                                            </td>
+                                            <td scope="row">
+                                                <img src="../public/img/venue/<?php echo $foto; ?>" alt="Image"
+                                                    style="width: 100px; height: 100px;">
+                                            </td>
 
-                                                <td scope="row">
-                                                    <?php
-                                                    if (
-                                                        isset($_SESSION['email']) && $_SESSION['email'] ===
-                                                        'arenafinder.app@gmail.com'
-                                                    ) {
-                                                    } else {
-                                                        // User is not logged in or has a different email, show the Edit button
-                                                        echo '<a href="aktivitas.php?op=edit&id=' . $id . '"><button type="button"
+                                            <td scope="row">
+                                                <?php
+                                                if (
+                                                    isset($_SESSION['email']) && $_SESSION['email'] ===
+                                                    'arenafinder.app@gmail.com'
+                                                ) {
+                                                } else {
+                                                    // User is not logged in or has a different email, show the Edit button
+                                                    echo '<a href="aktivitas.php?op=edit&id=' . $id . '"><button type="button"
                                                             class="btn btn-warning">Edit</button></a>';
-                                                    }
-                                                    ?>
-                                                    <a href="aktivitas.php?op=delete&id=<?php echo $id ?>"
-                                                        onclick="return confirm('Yakin mau menghapus data ini?')">
-                                                        <button type="button" class="btn btn-danger">Delete</button>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <?php
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
-                                <!-- Pagination code -->
-                                <ul class='pagination'>
-                                    <!-- Previous page link -->
+                                                }
+                                                ?>
+                                                <a href="aktivitas.php?op=delete&id=<?php echo $id ?>"
+                                                    onclick="return confirm('Yakin mau menghapus data ini?')">
+                                                    <button type="button" class="btn btn-danger">Delete</button>
+                                                </a>
+                                            </td>
+                                        </tr>
                                     <?php
-                                    if ($page > 1) {
-                                        echo "<li class='page-item'><a class='page-link' href='aktivitas.php?page=" . ($page - 1) . "'>&laquo; Previous</a></li>";
-                                    }
-
-                                    // Numbered pagination links
-                                    for ($i = 1; $i <= $jumlahHalaman; $i++) {
-                                        echo "<li class='page-item " . (($page == $i) ? 'active' : '') . "'><a class='page-link' href='aktivitas.php?page=$i'>$i</a></li>";
-                                    }
-
-                                    // Next page link
-                                    if ($page < $jumlahHalaman) {
-                                        echo "<li class='page-item'><a class='page-link' href='aktivitas.php?page=" . ($page + 1) . "'>Next &raquo;</a></li>";
                                     }
                                     ?>
-                                </ul>
-                            </div>
+                                </tbody>
+                            </table>
+                            <!-- Pagination code -->
+                            <ul class='pagination'>
+                                <!-- Previous page link -->
+                                <?php
+                                if ($page > 1) {
+                                    echo "<li class='page-item'><a class='page-link' href='aktivitas.php?page=" . ($page - 1) . "'>&laquo; Previous</a></li>";
+                                }
+
+                                // Numbered pagination links
+                                for ($i = 1; $i <= $jumlahHalaman; $i++) {
+                                    echo "<li class='page-item " . (($page == $i) ? 'active' : '') . "'><a class='page-link' href='aktivitas.php?page=$i'>$i</a></li>";
+                                }
+
+                                // Next page link
+                                if ($page < $jumlahHalaman) {
+                                    echo "<li class='page-item'><a class='page-link' href='aktivitas.php?page=" . ($page + 1) . "'>Next &raquo;</a></li>";
+                                }
+                                ?>
+                            </ul>
                         </div>
                     </div>
+                </div>
 
 
 

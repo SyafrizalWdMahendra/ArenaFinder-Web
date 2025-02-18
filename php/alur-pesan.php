@@ -1,10 +1,9 @@
 <?php
 session_start();
 $host = "localhost";
-$user = "tifz1761_root";
-$pass = "tifnganjuk321";
-$db = "tifz1761_arenafinder";
-
+$user = "root";
+$pass = "";
+$db = "arenafinder";
 $koneksi = mysqli_connect($host, $user, $pass, $db);
 if (!$koneksi) {
     die("Tidak bisa terkoneksi");
@@ -18,7 +17,7 @@ if (!$koneksi) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aktivitas</title>
-    <link rel="stylesheet" href="css/beranda.css" />
+    <link rel="stylesheet" href="/ArenaFinder-Web/css/beranda.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -380,11 +379,7 @@ if (!$koneksi) {
             border-right: 2px solid #000;
             font-size: 24px;
             color: #02406D;
-            animation: typing
-                <?php echo strlen($dynamicText) / 10; ?>
-                s steps(
-                    <?php echo strlen($dynamicText); ?>
-                ) infinite;
+            animation: typing <?php echo strlen($dynamicText) / 10; ?> s steps(<?php echo strlen($dynamicText); ?>) infinite;
         }
 
         @keyframes typing {
@@ -419,11 +414,7 @@ if (!$koneksi) {
                 text-align: center;
                 border-right: 2px solid #000;
                 font-size: 24px;
-                animation: typing
-                    <?php echo strlen($dynamicText) / 10; ?>
-                    s steps(
-                        <?php echo strlen($dynamicText); ?>
-                    ) infinite;
+                animation: typing <?php echo strlen($dynamicText) / 10; ?> s steps(<?php echo strlen($dynamicText); ?>) infinite;
             }
 
             .form-container {
@@ -481,7 +472,7 @@ if (!$koneksi) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto my-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Beranda</a>
+                        <a class="nav-link" href="../beranda.php">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="aktivitas.php">Aktivitas</a>
@@ -649,7 +640,7 @@ if (!$koneksi) {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             flatpickr("#staticEmail", {
                 enableTime: false, // Enable time selection
                 dateFormat: "Y-m-d", // Specify the date format

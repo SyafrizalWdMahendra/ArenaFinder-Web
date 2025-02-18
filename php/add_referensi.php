@@ -1,9 +1,9 @@
 <?php
 session_start();
 $host = "localhost";
-$user = "tifz1761_root";
-$pass = "tifnganjuk321";
-$db = "tifz1761_arenafinder";
+$user = "root";
+$pass = "";
+$db = "arenafinder";
 
 // $host = "localhost";
 // $user = "root";
@@ -68,7 +68,6 @@ if ($op == 'delete') {
     }
 }
 
-
 if ($op == 'edit') {
     $id = $_GET['id'];
     $sql1 = "SELECT * FROM venues WHERE id_venue = '$id'";
@@ -89,7 +88,6 @@ if ($op == 'edit') {
         $error = "Data tidak ditemukan";
     }
 }
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama = $_POST['nama_tempat'];
@@ -130,8 +128,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!empty($_FILES['foto']['name'])) {
             $nama_file = $_FILES['foto']['name'];
             $tmp = $_FILES['foto']['tmp_name'];
-            $upload_folder = 'public/img/venue/';
+            $upload_folder = '/ArenaFinder-Web/public/img/venue/';
 
+            // Check if the folder exists and is writable
+            if (!is_dir($upload_folder) || !is_writable($upload_folder)) {
+                die("Error: Upload folder doesn't exist or is not writable.");
+            }
+
+            // Attempt to move the uploaded file
             if (move_uploaded_file($tmp, $upload_folder . $nama_file)) {
                 // Database Operation
                 if ($op == 'edit') {
@@ -139,7 +143,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 } else {
                     $sql1 = "INSERT INTO venues (email, venue_name, location, sport, total_lapangan, status, price, price_membership, sport_status, venue_photo, coordinate, desc_venue) VALUES ('$email', '$nama', '$lokasi', '$type_sport', '$jumlah_lap', '$status', '$harga_sewa', '$harga_sewa', '$tipe_lap', '$nama_file', '$coordinate', '$deskripsi')";
                 }
-
 
                 if ($op == 'edit') {
                     $q1 = mysqli_query($koneksi, $sql1);
@@ -173,23 +176,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $error = "Data referensi gagal diupdate/ditambahkan";
                 }
             } else {
-                $error = "Harap pilih gambar yang akan diunggah :)";
+                $error = "Gagal mengunggah gambar. Error: " . $_FILES['foto']['error'];
             }
         } else {
-            $error = "Harap pilih gambar yang akan diunggah :|";
+            $error = "Harap pilih gambar yang akan diunggah.";
         }
     }
 }
 
-
-if ($error || $sukses || $error2 || $sukses2) {
-    // Set header sebelum mencetak pesan
-    $refreshUrl = "add_referensi.php";
-    if ($error2 || $sukses2) {
-        $refreshUrl .= "#tabel-card";
-    }
-    header("refresh:2;url=$refreshUrl"); // 2 = detik
-}
+// if ($error || $sukses || $error2 || $sukses2) {
+//     // Set header sebelum mencetak pesan
+//     $refreshUrl = "add_referensi.php";
+//     if ($error2 || $sukses2) {
+//         $refreshUrl .= "#tabel-card";
+//     }
+//     header("refresh:2;url=$refreshUrl"); // 2 = detik
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -198,7 +200,7 @@ if ($error || $sukses || $error2 || $sukses2) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Referensi</title>
-    <link rel="stylesheet" href="css/referensi.css" />
+    <link rel="stylesheet" href="/ArenaFinder-Web/css/referensi.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -206,7 +208,7 @@ if ($error || $sukses || $error2 || $sukses2) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/924b40cfb7.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="img_asset/login.png">
+    <link rel="icon" href="/ArenaFinder-web/img_asset/login.png">
     <style>
         #drop-menu {
             background-color: white;
@@ -324,7 +326,7 @@ if ($error || $sukses || $error2 || $sukses2) {
             color: #02406D;
         }
 
-        #con-link{
+        #con-link {
             margin-top: 100px;
         }
 
@@ -377,7 +379,7 @@ if ($error || $sukses || $error2 || $sukses2) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto my-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Beranda</a>
+                        <a class="nav-link" href="../beranda.php">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="aktivitas.php">Aktivitas</a>
@@ -489,7 +491,7 @@ if ($error || $sukses || $error2 || $sukses2) {
 
                             <!-- Add this script inside the head or body of your HTML document -->
                             <script>
-                                document.addEventListener('DOMContentLoaded', function () {
+                                document.addEventListener('DOMContentLoaded', function() {
                                     // Function to create and display error messages
                                     function showError(element, message) {
                                         // Check if an error message element already exists
@@ -523,7 +525,7 @@ if ($error || $sukses || $error2 || $sukses2) {
                                     var lokasiInput = document.getElementById('lokasi');
 
                                     // Add input event listeners to trigger validation
-                                    namaTempatInput.addEventListener('input', function () {
+                                    namaTempatInput.addEventListener('input', function() {
                                         var namaTempatValue = this.value;
                                         if (/\d/.test(namaTempatValue) || namaTempatValue.length < 5 || namaTempatValue.length > 30) {
                                             showError(this, "Nama tempat harus berupa huruf, bukan simbol dan memiliki panjang antara 5 sampai 30 karakter.");
@@ -532,7 +534,7 @@ if ($error || $sukses || $error2 || $sukses2) {
                                         }
                                     });
 
-                                    lokasiInput.addEventListener('input', function () {
+                                    lokasiInput.addEventListener('input', function() {
                                         var lokasiValue = this.value;
 
                                         // Memeriksa apakah input hanya terdiri dari angka
@@ -555,45 +557,45 @@ if ($error || $sukses || $error2 || $sukses2) {
                                     <select class="form-control" name="jenis_olga" id="jenis_olga" required>
                                         <option value="">-Pilih Jenis Olahraga-</option>
                                         <option value="Bulu tangkis" <?php if ($type_sport == "Bulu tangkis")
-                                            echo "selected" ?>>Badminton
-                                            </option>
-                                            <option value="Futsal" <?php if ($type_sport == "Futsal")
-                                            echo "selected" ?>>Futsal
-                                            </option>
-                                            <option value="Sepak bola" <?php if ($type_sport == "Sepak bola")
-                                            echo "selected" ?>>Sepak Bola
-                                            </option>
-                                            <option value="Bola Voli" <?php if ($type_sport == "Bola Voli")
-                                            echo "selected" ?>>Bola
-                                                Voli
-                                            </option>
-                                            <option value="Bola Basket" <?php if ($type_sport == "Bola Basket")
-                                            echo "selected" ?>>Bola Basket
-                                            </option>
-                                            <option value="Tenis Lapangan" <?php if ($type_sport == "Tenis Lapangan")
-                                            echo "selected" ?>>Tenis Lapangan
-                                            </option>
-                                            <option value="Renang" <?php if ($type_sport == "Renang")
-                                            echo "selected" ?>>Renang
-                                            </option>
-                                        </select>
-                                    </div>
+                                                                            echo "selected" ?>>Badminton
+                                        </option>
+                                        <option value="Futsal" <?php if ($type_sport == "Futsal")
+                                                                    echo "selected" ?>>Futsal
+                                        </option>
+                                        <option value="Sepak bola" <?php if ($type_sport == "Sepak bola")
+                                                                        echo "selected" ?>>Sepak Bola
+                                        </option>
+                                        <option value="Bola Voli" <?php if ($type_sport == "Bola Voli")
+                                                                        echo "selected" ?>>Bola
+                                            Voli
+                                        </option>
+                                        <option value="Bola Basket" <?php if ($type_sport == "Bola Basket")
+                                                                        echo "selected" ?>>Bola Basket
+                                        </option>
+                                        <option value="Tenis Lapangan" <?php if ($type_sport == "Tenis Lapangan")
+                                                                            echo "selected" ?>>Tenis Lapangan
+                                        </option>
+                                        <option value="Renang" <?php if ($type_sport == "Renang")
+                                                                    echo "selected" ?>>Renang
+                                        </option>
+                                    </select>
                                 </div>
+                            </div>
 
 
-                                <div class="mb-3 row">
-                                    <label for="jumlah_lap" class="col-sm-2 col-form-label">Jumlah Lapangan</label>
-                                    <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="jumlah_lap" name="jumlah_lap"
-                                            value="<?php echo $jumlah_lap ?>" required>
+                            <div class="mb-3 row">
+                                <label for="jumlah_lap" class="col-sm-2 col-form-label">Jumlah Lapangan</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="jumlah_lap" name="jumlah_lap"
+                                        value="<?php echo $jumlah_lap ?>" required>
                                 </div>
                             </div>
                             <!-- Add this script inside the head or body of your HTML document -->
                             <script>
-                                document.addEventListener('DOMContentLoaded', function () {
+                                document.addEventListener('DOMContentLoaded', function() {
                                     var jumlahLapanganInput = document.getElementById('jumlah_lap');
 
-                                    jumlahLapanganInput.addEventListener('input', function () {
+                                    jumlahLapanganInput.addEventListener('input', function() {
                                         var jumlahLapanganValue = this.value;
 
                                         // Check if the entered value is not a positive integer
@@ -611,32 +613,32 @@ if ($error || $sukses || $error2 || $sukses2) {
                                     <select class="form-control" name="status" id="status" required>
                                         <option value="">-Pilih Status-</option>
                                         <option value="Berbayar" <?php if ($status == "Berbayar")
-                                            echo "selected" ?>>Berbayar
-                                            </option>
-                                            <option value="Disewakan" <?php if ($status == "Disewakan")
-                                            echo "selected" ?>>Disewakan
-                                            </option>
-                                            <option value="Gratis" <?php if ($status == "Gratis")
-                                            echo "selected" ?>>Gratis
-                                            </option>
-                                        </select>
-                                    </div>
+                                                                        echo "selected" ?>>Berbayar
+                                        </option>
+                                        <option value="Disewakan" <?php if ($status == "Disewakan")
+                                                                        echo "selected" ?>>Disewakan
+                                        </option>
+                                        <option value="Gratis" <?php if ($status == "Gratis")
+                                                                    echo "selected" ?>>Gratis
+                                        </option>
+                                    </select>
                                 </div>
+                            </div>
 
-                                <div class="mb-3 row">
-                                    <label for="harga_sewa" class="col-sm-2 col-form-label">Harga Sewa</label>
-                                    <div class="col-sm-10">
-                                        <input type="number" class="form-control" id="harga_sewa" name="harga_sewa"
-                                            value="<?php echo $harga_sewa ?>" required>
+                            <div class="mb-3 row">
+                                <label for="harga_sewa" class="col-sm-2 col-form-label">Harga Sewa</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="harga_sewa" name="harga_sewa"
+                                        value="<?php echo $harga_sewa ?>" required>
                                 </div>
                             </div>
 
                             <!-- Add this script inside the head or body of your HTML document -->
                             <script>
-                                document.addEventListener('DOMContentLoaded', function () {
+                                document.addEventListener('DOMContentLoaded', function() {
                                     var hargaSewaInput = document.getElementById('harga_sewa');
 
-                                    hargaSewaInput.addEventListener('input', function () {
+                                    hargaSewaInput.addEventListener('input', function() {
                                         var hargaSewaValue = this.value;
 
                                         // Check if the entered value is a positive integer with a length between 1 and 7 digits
@@ -649,7 +651,7 @@ if ($error || $sukses || $error2 || $sukses2) {
                             </script>
 
                             <script>
-                                document.addEventListener('DOMContentLoaded', function () {
+                                document.addEventListener('DOMContentLoaded', function() {
                                     // Dapatkan elemen status dan input harga
                                     var statusElement = document.getElementById('status');
                                     var hargaSewaInput = document.getElementById('harga_sewa');
@@ -658,7 +660,7 @@ if ($error || $sukses || $error2 || $sukses2) {
                                     toggleHargaInput(statusElement.value);
 
                                     // Tambahkan event listener untuk perubahan pada elemen status
-                                    statusElement.addEventListener('change', function () {
+                                    statusElement.addEventListener('change', function() {
                                         toggleHargaInput(statusElement.value);
                                     });
 
@@ -680,12 +682,12 @@ if ($error || $sukses || $error2 || $sukses2) {
                                 <label for="tipe_lap" class="col-sm-2 col-form-label">Tipe Lapangan</label>
                                 <div class="col-sm-10">
                                     <input type="radio" id="indoor" name="tipe_lap" value="Indoor" <?php if ($tipe_lap == "Indoor")
-                                        echo "checked"; ?> required>
+                                                                                                        echo "checked"; ?> required>
                                     <label for="indoor">Indoor</label>
 
                                     <input type="radio" id="outdoor" name="tipe_lap" value="Outdoor"
                                         style="margin-left: 20px;" <?php if ($tipe_lap == "Outdoor")
-                                            echo "checked"; ?> required>
+                                                                        echo "checked"; ?> required>
                                     <label for="outdoor">Outdoor</label>
 
                                 </div>
@@ -710,12 +712,6 @@ if ($error || $sukses || $error2 || $sukses2) {
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <?php if ($error2 || $sukses2): ?>
-                                        <div class="alert <?php echo $error2 ? 'alert-danger' : 'alert-success'; ?>"
-                                            role="alert">
-                                            <?php echo $error2 ? $error2 : $sukses2; ?>
-                                        </div>
-                                    <?php endif; ?>
                                     <form action="add_referensi.php#tabel-card" method="GET">
                                         <div class="form-group" style="display: flex; gap: 10px;">
                                             <input type="text" name="search" id="searchInput" style="width: 50%;"
@@ -731,7 +727,7 @@ if ($error || $sukses || $error2 || $sukses2) {
                                     </form>
 
                                     <script>
-                                        document.getElementById('searchButton').addEventListener('click', function (event) {
+                                        document.getElementById('searchButton').addEventListener('click', function(event) {
                                             var searchInput = document.getElementById('searchInput');
 
                                             if (searchInput.value === '') {
@@ -744,7 +740,7 @@ if ($error || $sukses || $error2 || $sukses2) {
                                             }
                                         });
 
-                                        document.getElementById('searchInput').addEventListener('click', function () {
+                                        document.getElementById('searchInput').addEventListener('click', function() {
                                             var searchInput = document.getElementById('searchInput');
                                             searchInput.placeholder = 'Cari Tempat Olahraga'; // Mengembalikan placeholder ke default saat input diklik
                                             searchInput.style.borderColor = ''; // Mengembalikan warna border ke default saat input diklik
@@ -801,7 +797,7 @@ if ($error || $sukses || $error2 || $sukses2) {
                                                     $foto = $r2['venue_photo'];
                                                     $deskripsi = $r2['desc_venue'];
                                                     $coordinate = $r2['coordinate'];
-                                                    ?>
+                                                ?>
                                                     <tr>
                                                         <th scope="row">
                                                             <?php echo $urut++ ?>
@@ -857,7 +853,7 @@ if ($error || $sukses || $error2 || $sukses2) {
                                                                     type="button" class="btn btn-danger">Delete</button></a>
                                                         </td>
                                                     </tr>
-                                                    <?php
+                                                <?php
                                                 }
                                                 ?>
                                             </tbody>

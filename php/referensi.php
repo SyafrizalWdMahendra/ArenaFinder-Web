@@ -1,9 +1,9 @@
 <?php
 session_start();
 $host = "localhost";
-$user = "tifz1761_root";
-$pass = "tifnganjuk321";
-$db = "tifz1761_arenafinder";
+$user = "root";
+$pass = "";
+$db = "arenafinder";
 
 $koneksi = mysqli_connect($host, $user, $pass, $db);
 if (!$koneksi) {
@@ -18,7 +18,7 @@ if (!$koneksi) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Referensi</title>
-  <link rel="stylesheet" href="css/referensi.css" />
+  <link rel="stylesheet" href="/ArenaFinder-Web/css/referensi.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -26,7 +26,7 @@ if (!$koneksi) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/924b40cfb7.js" crossorigin="anonymous"></script>
-  <link rel="icon" href="img_asset/login.png">
+  <link rel="icon" href="/ArenaFinder-Web/img_asset/login.png">
   <style>
     .title_activity {
       margin-top: 0px;
@@ -476,7 +476,7 @@ if (!$koneksi) {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto my-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.php">Beranda</a>
+            <a class="nav-link" href="../beranda.php">Beranda</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="aktivitas.php">Aktivitas</a>
@@ -545,17 +545,17 @@ if (!$koneksi) {
           // Loop through each sport and generate a button
           foreach ($sports as $sport) {
             $sportName = $sport['sport'];
-            ?>
+          ?>
 
             <button class="all" type="submit" name="sport" value="<?php echo $sportName; ?>"
               data-sport-name="<?php echo $sportName; ?>">
               <!-- You may want to use a more specific image for each sport -->
-              <img src="/img_asset/<?php echo strtolower($sportName); ?>.jpg" alt="" />
+              <img src="/ArenaFinder-Web/img_asset/<?php echo strtolower($sportName); ?>.jpg" alt="" />
               <span>
                 <?php echo $sportName; ?>
               </span>
             </button>
-            <?php
+          <?php
           }
           ?>
         </div>
@@ -601,9 +601,9 @@ if (!$koneksi) {
 
       <div class="fourth-sep">
         <div class="tipe-lap">
-          <button id="indoorButton" onclick="showCards('Indoor')">Indoor<img src="img_asset/bulu tangkis.jpg"
+          <button id="indoorButton" onclick="showCards('Indoor')">Indoor<img src="/ArenaFinder-Web/img_asset/bulu tangkis.jpg"
               alt="" /></button>
-          <button id="outdoorButton" onclick="showCards('Outdoor')">Outdoor<img src="img_asset/outdoor.jpg"
+          <button id="outdoorButton" onclick="showCards('Outdoor')">Outdoor<img src="/ArenaFinder-Web/img_asset/outdoor.jpg"
               alt="" /></button>
 
           <?php
@@ -659,7 +659,7 @@ if (!$koneksi) {
         echo '<div class="card-body">';
 
         $namaGambar = $row['venue_photo'];
-        $gambarURL = "public/img/venue/" . $namaGambar;
+        $gambarURL = "/ArenaFinder-Web/public/img/venue/" . $namaGambar;
 
         echo '<img src="' . $gambarURL . '" alt="Gambar" >';
         echo '<h5 class="card-title mt-3" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">' . $row['venue_name'] . '</h5>';
@@ -686,7 +686,7 @@ if (!$koneksi) {
         $sql3 = "SELECT * FROM venues WHERE sport_status = '$tipe_lapangan'";
         $q3 = mysqli_query($koneksi, $sql3);
         $count = 0; // Untuk menghitung jumlah kartu pada setiap baris
-        
+
         while ($row = mysqli_fetch_array($q3)) {
           // Membuka baris baru setiap kali 4 kartu telah ditampilkan
           if ($count % 4 == 0) {
@@ -698,7 +698,7 @@ if (!$koneksi) {
           echo '<div class="card-body">';
 
           $namaGambar = $row['venue_photo'];
-          $gambarURL = "public/img/venue/" . $namaGambar;
+          $gambarURL = "/ArenaFinder-Web/public/img/venue/" . $namaGambar;
 
           echo '<img src="' . $gambarURL . '" alt="Gambar" >';
           echo '<h5 class="card-title mt-3" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">' . $row['venue_name'] . '</h5>';
@@ -725,7 +725,7 @@ if (!$koneksi) {
         $sql3 = "SELECT * FROM venues WHERE sport_status = '$tipe_lapangan'";
         $q3 = mysqli_query($koneksi, $sql3);
         $count = 0; // Untuk menghitung jumlah kartu pada setiap baris
-        
+
         while ($row = mysqli_fetch_array($q3)) {
           // Membuka baris baru setiap kali 4 kartu telah ditampilkan
           if ($count % 4 == 0) {
@@ -737,7 +737,7 @@ if (!$koneksi) {
           echo '<div class="card-body">';
 
           $namaGambar = $row['venue_photo'];
-          $gambarURL = "public/img/venue/" . $namaGambar;
+          $gambarURL = "/ArenaFinder-Web/public/img/venue/" . $namaGambar;
 
           echo '<img src="' . $gambarURL . '" alt="Gambar" >';
           echo '<h5 class="card-title mt-3" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">' . $row['venue_name'] . '</h5>';
@@ -760,7 +760,7 @@ if (!$koneksi) {
     function showCards(category) {
       var cards = document.querySelectorAll('.card');
 
-      cards.forEach(function (card) {
+      cards.forEach(function(card) {
         var tipeLap = card.getAttribute('data-tipe-lap');
 
         // Tampilkan hanya kartu dengan kategori yang sesuai
@@ -806,7 +806,7 @@ if (!$koneksi) {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
       $("#ref-btn").popover({
         content: "Menu ini hanya bisa diakses oleh super admin/developer",
         trigger: "hover",
@@ -818,10 +818,10 @@ if (!$koneksi) {
     // Simulasikan status login admin (ganti dengan kode sesuai aplikasi Anda)
     const isAdmin = false; // Ganti menjadi true jika pengguna adalah admin
 
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
       const refBtn = document.getElementById("ref-btn");
 
-      refBtn.addEventListener("click", function (event) {
+      refBtn.addEventListener("click", function(event) {
         if (isAdmin) {
           event.preventDefault(); // Mencegah tautan dari diikuti
           alert("Anda adalah admin. Anda tidak dapat mengakses tautan ini.");

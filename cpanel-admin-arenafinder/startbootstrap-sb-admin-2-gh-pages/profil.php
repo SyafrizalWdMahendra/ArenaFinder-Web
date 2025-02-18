@@ -42,7 +42,16 @@ if ($sql) {
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/924b40cfb7.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="../img_asset/login.png">
+    <link rel="icon" href="/ArenaFinder-Web/img_asset/login.png">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
     <style>
         body {
             font-family: "Kanit", sans-serif;
@@ -82,7 +91,7 @@ if ($sql) {
 
             <!-- Nav Item - Web -->
             <li class="nav-item">
-                <a class="nav-link" href="../index.php">
+                <a class="nav-link" href="/ArenaFinder-Web/beranda.php">
                     <i class="fa-brands fa-edge"></i>
                     <span>Lihat Website</span></a>
             </li>
@@ -143,10 +152,10 @@ if ($sql) {
 
             <!-- Your Badge Script with AJAX -->
             <script>
-                setInterval(function () {
+                setInterval(function() {
                     function loadDoc() {
                         var xhttp = new XMLHttpRequest();
-                        xhttp.onreadystatechange = function () {
+                        xhttp.onreadystatechange = function() {
                             if (this.readyState == 4 && this.status == 200) {
                                 console.log("Response from check_data.php:", this.responseText); // Log the response
                                 document.getElementById("pesanan-link").innerHTML = this.responseText;

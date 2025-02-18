@@ -1,9 +1,9 @@
 <?php
 
 $servername = "localhost";
-$username_db = "tifz1761_root";
-$password_db = "tifnganjuk321";
-$dbname = "tifz1761_arenafinder";
+$username_db = "root";
+$password_db = "";
+$dbname = "arenafinder";
 
 $conn = new mysqli($servername, $username_db, $password_db, $dbname);
 

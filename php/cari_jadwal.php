@@ -1,9 +1,9 @@
 <?php
 session_start();
 $host = "localhost";
-$user = "tifz1761_root";
-$pass = "tifnganjuk321";
-$db = "tifz1761_arenafinder";
+$user = "root";
+$pass = "";
+$db = "arenafinder";
 
 $koneksi = mysqli_connect($host, $user, $pass, $db);
 if (!$koneksi) {
@@ -18,7 +18,7 @@ if (!$koneksi) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aktivitas</title>
-    <link rel="stylesheet" href="css/beranda.css" />
+    <link rel="stylesheet" href="/ArenaFinder-Web/css/beranda.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -27,7 +27,7 @@ if (!$koneksi) {
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://kit.fontawesome.com/924b40cfb7.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="img_asset/login.png">
+    <link rel="icon" href="/ArenaFinder-Web/img_asset/login.png">
     <style>
         body {
             margin-top: 150px;
@@ -418,7 +418,7 @@ if (!$koneksi) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto my-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Beranda</a>
+                        <a class="nav-link" href="../beranda.php">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="aktivitas.php">Aktivitas</a>
@@ -477,7 +477,7 @@ if (!$koneksi) {
                         // Mengambil data dari database
                         $futsalData = $row['sport']; // Mengambil data dari kolom 'sport' di tabel 'venues'
                         $tanggalData = $row['date']; // Mengambil data dari kolom 'date' di tabel 'venue_price'
-                    
+
                         // Echo data ke dalam span
                         echo '<span class="text-wrapper">Jadwal</span>';
                         echo '<span class="span">' . $futsalData . ' </span>';
@@ -560,7 +560,6 @@ if (!$koneksi) {
 
                 // Setel innerHTML setelah perulangan selesai
                 cardCon.innerHTML = kontenHTML;
-
             </script>
 
             <br>
@@ -665,16 +664,16 @@ if (!$koneksi) {
             card.appendChild(dayOfWeek);
 
             // Perform an asynchronous request to get data from venue_price
-            fetch('get_venue_price.php', {  // Update the path if needed
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    action: 'get_data',
-                    date: clickedDate.toISOString().split('T')[0], // Format date as YYYY-MM-DD
-                }),
-            })
+            fetch('get_venue_price.php', { // Update the path if needed
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        action: 'get_data',
+                        date: clickedDate.toISOString().split('T')[0], // Format date as YYYY-MM-DD
+                    }),
+                })
                 .then(response => response.json())
                 .then(data => {
                     // Assuming you have a container with id "scheduleContainer" in your HTML
@@ -745,7 +744,7 @@ if (!$koneksi) {
             card.appendChild(dayOfWeek);
 
             // Handle card click
-            card.addEventListener("click", function () {
+            card.addEventListener("click", function() {
                 handleCardClick(day);
             });
 
@@ -803,15 +802,15 @@ if (!$koneksi) {
             // Menggeser ke kartu selanjutnya jika melebihi threshold, sebaliknya kembali ke posisi semula
             if (currentTranslate > 0) {
                 container.style.transform = "translateX(0)";
-                previousTranslate = currentTranslate = 0; z
+                previousTranslate = currentTranslate = 0;
+                z
             } else if (
                 currentTranslate <
                 -(cards.length - 5) * (cards[0].offsetWidth + 20)
             ) {
                 container.style.transform = `translateX(${-(cards.length - 5) * (cards[0].offsetWidth + 20)
                     }px)`;
-                previousTranslate = currentTranslate =
-                    -(cards.length - 5) * (cards[0].offsetWidth + 20);
+                previousTranslate = currentTranslate = -(cards.length - 5) * (cards[0].offsetWidth + 20);
             } else if (currentTranslate < -50) { // Set the limit value (adjust as needed)
                 container.style.transform = `translateX(${currentTranslate}px)`;
                 previousTranslate = currentTranslate;
@@ -824,9 +823,9 @@ if (!$koneksi) {
 
         // Menghitung posisi dari event (sentuhan atau klik mouse)
         function getEventPosition(event) {
-            return event.type.includes("mouse")
-                ? event.clientX
-                : event.touches[0].clientX;
+            return event.type.includes("mouse") ?
+                event.clientX :
+                event.touches[0].clientX;
         }
 
         // Memperbarui transformasi pada container
@@ -873,7 +872,7 @@ if (!$koneksi) {
                 }
                 // // Determine the card class based on the status
                 // $cardClass = ($row['status_pemesanan'] == 'Sudah Dipesan') ? 'card shadow gray-card' : 'card shadow';
-        
+
                 // Card untuk data
                 echo '<div class="card" id="card-main">';
                 echo '<div class="card-body">';
@@ -928,7 +927,7 @@ if (!$koneksi) {
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
             <script>
-                document.addEventListener('DOMContentLoaded', function () {
+                document.addEventListener('DOMContentLoaded', function() {
                     flatpickr("#staticEmail", {
                         enableTime: false, // Enable time selection
                         minDate: "today", // Set the minimum date to today
